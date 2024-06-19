@@ -1,19 +1,30 @@
 import { useContext } from "react"
 import { ShoppingCartContext } from "../../Context"
+import { PlusCircleIcon } from "@heroicons/react/24/outline"
 
 const Card = (data) => {
-    const { count, setCount } = useContext(ShoppingCartContext)
+    const { count, setCount, openProductDetail, setProductToShow} = useContext(ShoppingCartContext)
+
+    const showProduct = (productDetail) => {
+        openProductDetail()
+        setProductToShow(productDetail)
+
+    }
     return (
-    <div className="bg-white cursor-pointer w-56 h-60">
+    <div 
+    className="bg-white cursor-pointer w-56 h-60"
+    onClick={() => showProduct(data.data)}>
         <figure className="relative mb-2 w-full h-4/5 bg-white/60">
             <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">{data.data.category}</span>
             <img className="w-full h-full object-cover rounded-lg " src={data.data.image} alt="headphones" />
-            <div 
-            className="absolute top-0 right-0 flex justify-center items-center bg-gray-200 w-6 h-6 rounded-full m-2 p-1 text-lg text-black"
-            onClick={() => setCount(count + 1)}
-            >
-            +
-            </div>
+            <PlusCircleIcon 
+            className="absolute top-0 right-0 flex justify-center items-center w-8 h-8  rounded-full m-2 bg-white"
+            onClick={(e) => {
+                e.stopPropagation()
+                setCount(count + 1)
+            }}
+            />
+
         </figure>
         <p className="flex justify-between">
             <span className="text-sm font-light  mr-2 truncate">{data.data.title}</span>
