@@ -3,12 +3,20 @@ import { ShoppingCartContext } from "../../Context"
 import { PlusCircleIcon } from "@heroicons/react/24/outline"
 
 const Card = (data) => {
-    const { count, setCount, openProductDetail, setProductToShow} = useContext(ShoppingCartContext)
+    const { count, setCount, openProductDetail,openCheckoutSideMenu,closeProductDetail,closeCheckoutSideMenu, setProductToShow, cartProducts,  setCartProducts} = useContext(ShoppingCartContext)
 
     const showProduct = (productDetail) => {
         openProductDetail()
+        closeCheckoutSideMenu()
         setProductToShow(productDetail)
+    }
 
+    const addProductToCart = (productData) => {
+        setCount(count + 1)
+        setCartProducts([...cartProducts, productData])
+        openCheckoutSideMenu()
+        closeProductDetail()
+        console.log('cart: ', cartProducts)
     }
     return (
     <div 
@@ -21,8 +29,9 @@ const Card = (data) => {
             className="absolute top-0 right-0 flex justify-center items-center w-8 h-8  rounded-full m-2 bg-white"
             onClick={(e) => {
                 e.stopPropagation()
-                setCount(count + 1)
-            }}
+                addProductToCart(data.data)
+            }
+            }
             />
 
         </figure>
