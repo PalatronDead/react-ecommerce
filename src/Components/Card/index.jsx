@@ -12,6 +12,7 @@ const Card = (data) => {
     setProductToShow,
     cartProducts,
     setCartProducts,
+    setProductPrice
   } = useContext(ShoppingCartContext);
 
   const showProduct = (productDetail) => {
@@ -33,7 +34,12 @@ const Card = (data) => {
 
     if (isInCart) {
       return (
-        <CheckIcon className="absolute top-0 right-0 flex justify-center items-center w-6 h-6 rounded-full m-2 text-white bg-black" />
+        <CheckIcon 
+        className="absolute top-0 right-0 flex justify-center items-center w-6 h-6 rounded-full m-2 text-white bg-black" 
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        />
       );
     } else {
       return (
