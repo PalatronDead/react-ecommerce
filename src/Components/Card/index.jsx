@@ -12,7 +12,6 @@ const Card = (data) => {
     setProductToShow,
     cartProducts,
     setCartProducts,
-    setProductPrice
   } = useContext(ShoppingCartContext);
 
   const showProduct = (productDetail) => {
@@ -34,17 +33,17 @@ const Card = (data) => {
 
     if (isInCart) {
       return (
-        <CheckIcon 
-        className="absolute top-0 right-0 flex justify-center items-center w-6 h-6 rounded-full m-2 text-white bg-black" 
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
+        <CheckIcon
+          className="absolute right-0 top-0 m-2 flex h-6 w-6 items-center justify-center rounded-full bg-black text-white"
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
         />
       );
     } else {
       return (
         <PlusCircleIcon
-          className="absolute top-0 right-0 flex justify-center items-center w-6 h-6  rounded-full m-2 bg-white"
+          className="absolute right-0 top-0 m-2 flex h-6 w-6 items-center justify-center rounded-full bg-white"
           onClick={(e) => {
             e.stopPropagation();
             addProductToCart(data.data);
@@ -55,22 +54,22 @@ const Card = (data) => {
   };
   return (
     <div
-      className="bg-white cursor-pointer w-56 h-60"
+      className="h-60 w-56 cursor-pointer bg-white"
       onClick={() => showProduct(data.data)}
     >
-      <figure className="relative mb-2 w-full h-4/5 bg-white/60">
-        <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">
+      <figure className="relative mb-2 h-4/5 w-full bg-white/60">
+        <span className="absolute bottom-0 left-0 m-2 rounded-lg bg-white/60 px-3 py-0.5 text-xs text-black">
           {data.data.category}
         </span>
         <img
-          className="w-full h-full object-cover rounded-lg "
+          className="h-full w-full rounded-lg object-cover"
           src={data.data.image}
           alt="headphones"
         />
         {renderIcon(data.data.id)}
       </figure>
       <p className="flex justify-between">
-        <span className="text-sm font-light  mr-2 truncate">
+        <span className="mr-2 truncate text-sm font-light">
           {data.data.title}
         </span>
         <span className="text-lg font-medium">${data.data.price}</span>

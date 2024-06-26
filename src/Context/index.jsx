@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const ShoppingCartContext = createContext();
 
@@ -22,9 +22,21 @@ export const ShoppingCartProvider = ({ children }) => {
   const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true);
   const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false);
 
-
   // Product Detail - Show Product
   const [productToShow, setProductToShow] = useState({});
+
+  //Get Products
+  const [items, setItems] = useState(null);
+
+  //Get Products By Title
+  const [searchByTitle, setSearchByTitle] = useState(null);
+  console.log(searchByTitle);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((data) => setItems(data));
+  }, []);
 
   return (
     <ShoppingCartContext.Provider
@@ -42,7 +54,11 @@ export const ShoppingCartProvider = ({ children }) => {
         closeCheckoutSideMenu,
         isCheckoutSideMenuOpen,
         order,
-        setOrder
+        setOrder,
+        items,
+        setItems,
+        searchByTitle,
+        setSearchByTitle,
       }}
     >
       {children}
