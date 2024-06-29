@@ -13,6 +13,13 @@ import "./App.css";
 const AppRoutes = () => {
   let routes = useRoutes([
     { path: "/", element: <Home /> },
+    { path: "/all", element: <Home /> },
+    { path: "/electronics", element: <Home /> },
+    { path: "/jewelery", element: <Home /> },
+    { path: "/men'sclothing", element: <Home /> },
+    { path: "/women'sclothing", element: <Home /> },
+    { path: "/", element: <Home /> },
+    { path: "/", element: <Home /> },
     { path: "/my-account", element: <MyAccount /> },
     { path: "/my-order", element: <MyOrder /> },
     { path: "/my-orders", element: <MyOrders /> },
