@@ -97,7 +97,6 @@ export const ShoppingCartProvider = ({ children }) => {
       setSearchByTitle(null);
     };
   }, [items, searchByTitle, searchByCategory]);
-  console.log("FilteredItems, ", filteredItems);
   return (
     <ShoppingCartContext.Provider
       value={{

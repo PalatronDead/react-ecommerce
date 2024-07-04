@@ -8,6 +8,7 @@ import NotFound from "../NotFound";
 import SignIn from "../SignIn";
 import Navbar from "../../Components/Navbar";
 import CheckoutSideMenu from "../../Components/CheckoutSideMenu";
+import SignUp from "../SignUp";
 import "./App.css";
 
 const AppRoutes = () => {
@@ -27,6 +28,7 @@ const AppRoutes = () => {
     { path: "/my-orders/:id", element: <MyOrder /> },
     { path: "/*", element: <NotFound /> },
     { path: "/sign-in", element: <SignIn /> },
+    { path: "/sign-up", element: <SignUp /> },
   ]);
 
   return routes;
