@@ -29,13 +29,23 @@ export const ShoppingCartProvider = ({ children }) => {
   const [items, setItems] = useState(null);
 
   //Get Products By Title
-  const [searchByTitle, setSearchByTitle] = useState(null);
+  const [searchByTitle, setSearchByTitle] = useState("");
 
   //Get Products By Category
-  const [searchByCategory, setSearchByCategory] = useState(null);
+  const [searchByCategory, setSearchByCategory] = useState("");
 
   //Get FilteredItems
-  const [filteredItems, setFilteredItems] = useState(null);
+  const [filteredItems, setFilteredItems] = useState([]);
+
+  //Get User Data
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  //User Detail(Are they sign-in yet?)
+  const [isSignOut, setIsSignOut] = useState(true);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -120,6 +130,10 @@ export const ShoppingCartProvider = ({ children }) => {
         setSearchByTitle,
         filteredItems,
         setSearchByCategory,
+        userData,
+        setUserData,
+        isSignOut,
+        setIsSignOut,
       }}
     >
       {children}

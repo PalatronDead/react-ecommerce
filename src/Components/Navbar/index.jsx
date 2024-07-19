@@ -4,8 +4,19 @@ import { ShoppingCartContext } from "../../Context";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
 const Navbar = () => {
-  const { count, setSearchByCategory, cartProducts } =
-    useContext(ShoppingCartContext);
+  const {
+    count,
+    setSearchByCategory,
+    cartProducts,
+    isSignOut,
+    setIsSignOut,
+    setUserData,
+    userData,
+  } = useContext(ShoppingCartContext);
+
+  const closeSession = () => {
+    setIsSignOut(true);
+  };
   const activeStyle = "underline underline-offset-4";
   return (
     <nav className="fixed top-0 z-10 flex w-full items-center justify-between px-8 py-5 text-sm font-light">
@@ -87,8 +98,9 @@ const Navbar = () => {
           <NavLink
             to="/sign-in"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
+            onClick={() => !isSignOut && closeSession()}
           >
-            Sign in
+            {isSignOut ? "Sign In" : "Sign Out"}
           </NavLink>
         </li>
         <li className="flex items-center">
