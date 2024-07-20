@@ -1,6 +1,8 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { ShoppingCartContext } from "../../Context";
 import { PlusCircleIcon, CheckIcon } from "@heroicons/react/24/outline";
+
 const Card = (data) => {
   const {
     count,
@@ -12,12 +14,19 @@ const Card = (data) => {
     setProductToShow,
     cartProducts,
     setCartProducts,
+    isSignOut,
   } = useContext(ShoppingCartContext);
 
+  const navigate = useNavigate();
+
   const showProduct = (productDetail) => {
-    openProductDetail();
-    closeCheckoutSideMenu();
-    setProductToShow(productDetail);
+    if (isSignOut) {
+      navigate("sign-in");
+    } else {
+      openProductDetail();
+      closeCheckoutSideMenu();
+      setProductToShow(productDetail);
+    }
   };
 
   const addProductToCart = (productData) => {
