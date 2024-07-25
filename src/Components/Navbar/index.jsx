@@ -5,12 +5,10 @@ import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
 const Navbar = () => {
   const {
-    count,
     setSearchByCategory,
     cartProducts,
     isSignOut,
     setIsSignOut,
-    setUserData,
     userData,
   } = useContext(ShoppingCartContext);
 
@@ -19,8 +17,8 @@ const Navbar = () => {
   };
   const activeStyle = "underline underline-offset-4";
   return (
-    <nav className="fixed top-0 z-10 flex w-full items-center justify-between px-8 py-5 text-sm font-light">
-      <ul className="flex items-center gap-3">
+    <nav className="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between px-5 py-5 text-sm font-light min-[470px]:flex-nowrap sm:px-8">
+      <ul className="flex w-full items-center gap-3 sm:w-auto">
         <li className="text-lg font-semibold">
           <NavLink
             to="/"
@@ -76,14 +74,14 @@ const Navbar = () => {
           </NavLink>
         </li>
       </ul>
-      <ul className="flex items-center gap-3">
-        <li className="text-black/60">palatron@33outlook.com</li>
+      <ul className="flex w-full items-center gap-3 sm:w-auto">
+        <li className="text-black/60">{isSignOut ? "" : userData.email}</li>
         <li>
           <NavLink
             to="/my-orders"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            My Orders
+            {isSignOut ? "" : "My Orders"}
           </NavLink>
         </li>
         <li>
@@ -91,7 +89,7 @@ const Navbar = () => {
             to="/my-account"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            My Account
+            {isSignOut ? "" : "My Account"}
           </NavLink>
         </li>
         <li>

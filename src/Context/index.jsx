@@ -83,6 +83,10 @@ export const ShoppingCartProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    console.log("searchByTitle:", searchByTitle);
+    console.log("searchByCategory:", searchByCategory);
+    console.log("items:", items);
+
     if (searchByTitle && searchByCategory)
       setFilteredItems(
         filterBy(
@@ -102,10 +106,6 @@ export const ShoppingCartProvider = ({ children }) => {
       );
     if (!searchByTitle && !searchByCategory)
       setFilteredItems(filterBy(null, items, searchByTitle, searchByCategory));
-
-    return () => {
-      setSearchByTitle(null);
-    };
   }, [items, searchByTitle, searchByCategory]);
   return (
     <ShoppingCartContext.Provider

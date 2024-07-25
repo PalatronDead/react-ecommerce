@@ -30,10 +30,14 @@ const Card = (data) => {
   };
 
   const addProductToCart = (productData) => {
-    setCount(count + 1);
-    setCartProducts([...cartProducts, productData]);
-    openCheckoutSideMenu();
-    closeProductDetail();
+    if (isSignOut) {
+      navigate("sign-in");
+    } else {
+      setCount(count + 1);
+      setCartProducts([...cartProducts, productData]);
+      openCheckoutSideMenu();
+      closeProductDetail();
+    }
   };
 
   const renderIcon = (id) => {

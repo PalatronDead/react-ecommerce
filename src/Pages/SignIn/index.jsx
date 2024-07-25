@@ -47,6 +47,16 @@ function SignIn() {
         <div className="w-80">
           <form onSubmit={initiateSession}>
             <div className="mb-4">
+              <label htmlFor="name">Your name</label>
+              <input
+                className="w-80 rounded-lg border border-black p-2 focus:outline-none"
+                type="text"
+                name="name"
+                value={userData.name}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="mb-4">
               <label htmlFor="email">Your email</label>
               <input
                 className="w-80 rounded-lg border border-black p-2 focus:outline-none"

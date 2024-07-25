@@ -34,7 +34,7 @@ function Home() {
         placeholder="Search a product"
         onChange={(e) => setSearchByTitle(e.target.value)}
       />
-      <div className="grid w-full max-w-screen-lg grid-cols-4 gap-4">
+      <div className="grid w-full max-w-screen-lg place-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {renderView()}
       </div>
       <ProductDetail />
@@ -43,3 +43,5 @@ function Home() {
 }
 
 export default Home;
+
+// grid w-full max-w-screen-lg place-items-center gap-4 max-[949px]:grid-cols-3 max-[949px]:gap-0 max-[700px]:grid-cols-2 max-[460px]:grid-cols-1 min-[950px]:grid-cols-4

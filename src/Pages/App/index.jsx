@@ -15,12 +15,54 @@ import "./App.css";
 
 const AppRoutes = () => {
   let routes = useRoutes([
-    { path: "/", element: <Home /> },
-    { path: "/all", element: <Home /> },
-    { path: "/electronics", element: <Home /> },
-    { path: "/jewelery", element: <Home /> },
-    { path: "/men'sclothing", element: <Home /> },
-    { path: "/women'sclothing", element: <Home /> },
+    {
+      path: "/",
+      element: (
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/all",
+      element: (
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/electronics",
+      element: (
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/jewelery",
+      element: (
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/men'sclothing",
+      element: (
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/women'sclothing",
+      element: (
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      ),
+    },
     {
       path: "/my-account",
       element: (
@@ -29,13 +71,38 @@ const AppRoutes = () => {
         </ProtectedRoute>
       ),
     },
-    { path: "/my-order", element: <MyOrder /> },
+    {
+      path: "/my-order",
+      element: (
+        <ProtectedRoute>
+          <MyOrder />
+        </ProtectedRoute>
+      ),
+    },
     {
       path: "/my-orders",
-      element: <MyOrders />,
+      element: (
+        <ProtectedRoute>
+          <MyOrders />
+        </ProtectedRoute>
+      ),
     },
-    { path: "/my-orders/last", element: <MyOrder /> },
-    { path: "/my-orders/:id", element: <MyOrder /> },
+    {
+      path: "/my-orders/last",
+      element: (
+        <ProtectedRoute>
+          <MyOrders />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/my-orders/:id",
+      element: (
+        <ProtectedRoute>
+          <MyOrders />
+        </ProtectedRoute>
+      ),
+    },
     { path: "/*", element: <NotFound /> },
     {
       path: "/sign-in",
@@ -53,7 +120,14 @@ const AppRoutes = () => {
         </PublicRoute>
       ),
     },
-    { path: "/sign-up/edit", element: <SignUp /> },
+    {
+      path: "/sign-up/edit",
+      element: (
+        <ProtectedRoute>
+          <SignUp />
+        </ProtectedRoute>
+      ),
+    },
   ]);
 
   return routes;

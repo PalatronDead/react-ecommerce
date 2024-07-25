@@ -48,7 +48,7 @@ function SignUp() {
       setIsSignOut(false);
       saveSignOutData(false);
       saveDataUser(userData);
-      navigate("/");
+      navigate("/my-account");
     }
   };
 
@@ -67,6 +67,7 @@ function SignUp() {
                   className="w-80 rounded-lg border border-black p-2 focus:outline-none"
                   type="text"
                   name="name"
+                  id="name"
                   value={userData.name}
                   onChange={handleChange}
                 />
@@ -77,6 +78,7 @@ function SignUp() {
                   className="w-80 rounded-lg border border-black p-2 focus:outline-none"
                   type="email"
                   name="email"
+                  id="email"
                   value={userData.email}
                   onChange={handleChange}
                 />
@@ -87,6 +89,7 @@ function SignUp() {
                   className="w-80 rounded-lg border border-black p-2 focus:outline-none"
                   type="password"
                   name="password"
+                  id="password"
                   value={userData.password}
                   onChange={handleChange}
                 />
