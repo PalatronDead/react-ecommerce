@@ -32,12 +32,13 @@ const CheckoutSideMenu = () => {
     };
     setOrder([...order, orderToAdd]);
     setCartProducts([]);
+    closeCheckoutSideMenu();
   };
   return (
     <aside
       className={`${
         isCheckoutSideMenuOpen ? "flex" : "hidden"
-      } checkout-side-menu fixed right-0 h-[calc(100vh-68px)] w-[360px] flex-col rounded-lg border border-black bg-white`}
+      } checkout-side-menu-sm sm:checkout-side-menu fixed right-0 h-[40vh] w-full flex-col rounded-lg border border-black bg-white sm:h-[calc(100vh-68px)] sm:w-[360px]`}
     >
       <div className="flex items-center justify-between p-6">
         <h2 className="text-xl font-medium">My Order</h2>
@@ -65,7 +66,7 @@ const CheckoutSideMenu = () => {
             ${totalPrice(cartProducts)}
           </span>
         </p>
-        <Link to={"/my-orders/last"}>
+        <Link to={"/my-order/last"}>
           <button
             className="w-full rounded-lg bg-black py-3 text-white"
             onClick={() => {

@@ -16,7 +16,7 @@ function MyAccount() {
         <div className="mb-4 flex w-80 items-center justify-center">
           <h1 className="text-xl font-medium">My Account</h1>
         </div>
-        <div className="w-80">
+        <div className="">
           <div className="mb-4 flex justify-center gap-1">
             <p className="font-light">My Name:</p>
             <span className="font-medium">{userData.name}</span>

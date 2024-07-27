@@ -83,10 +83,6 @@ export const ShoppingCartProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log("searchByTitle:", searchByTitle);
-    console.log("searchByCategory:", searchByCategory);
-    console.log("items:", items);
-
     if (searchByTitle && searchByCategory)
       setFilteredItems(
         filterBy(

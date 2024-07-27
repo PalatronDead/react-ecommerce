@@ -42,7 +42,7 @@ function SignIn() {
     <>
       <Layout>
         <div className="mb-4 flex w-80 items-center justify-center">
-          <h1 className="text-xl font-medium">Sign In</h1>
+          <h1 className="text-xl font-medium">Welcome</h1>
         </div>
         <div className="w-80">
           <form onSubmit={initiateSession}>

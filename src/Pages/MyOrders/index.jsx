@@ -10,11 +10,11 @@ function MyOrders() {
   return (
     <>
       <Layout>
-        <div className="tems-center relative mb-4 flex w-80 justify-center">
+        <div className="relative mb-4 mt-4 flex w-80 items-center justify-center sm:mt-0">
           <h1 className="text-xl font-medium">My Orders</h1>
         </div>
         {order.map((order, index) => (
-          <Link key={index} to={`/my-orders/${index}`}>
+          <Link key={index} to={`/my-order/${index}`}>
             <OrdersCard
               totalPrice={order.totalPrice}
               totalProducts={order.totalProducts}

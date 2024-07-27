@@ -88,18 +88,18 @@ const AppRoutes = () => {
       ),
     },
     {
-      path: "/my-orders/last",
+      path: "/my-order/last",
       element: (
         <ProtectedRoute>
-          <MyOrders />
+          <MyOrder />
         </ProtectedRoute>
       ),
     },
     {
-      path: "/my-orders/:id",
+      path: "/my-order/:id",
       element: (
         <ProtectedRoute>
-          <MyOrders />
+          <MyOrder />
         </ProtectedRoute>
       ),
     },

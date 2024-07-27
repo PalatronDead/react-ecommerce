@@ -1,3 +1,7 @@
-.product-detail{
-    top: 68px;
+.product-detail {
+  top: 68px;
+}
+
+.product-detail-sm {
+  bottom: 0;
 }
